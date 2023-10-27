@@ -20,6 +20,7 @@ final class HomePageVC: UIViewController {
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.spacing = 20
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -31,6 +32,7 @@ final class HomePageVC: UIViewController {
         button.backgroundColor = UIColor(red: 0.133, green: 0.341, blue: 0.478, alpha: 1)
         button.heightAnchor.constraint(equalToConstant: 45).isActive = true
         button.widthAnchor.constraint(equalToConstant: 292).isActive = true
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -42,6 +44,7 @@ final class HomePageVC: UIViewController {
         button.backgroundColor = UIColor(red: 0.133, green: 0.341, blue: 0.478, alpha: 1)
         button.heightAnchor.constraint(equalToConstant: 45).isActive = true
         button.widthAnchor.constraint(equalToConstant: 292).isActive = true
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     

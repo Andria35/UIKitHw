@@ -11,9 +11,9 @@ final class SignInVC: UIViewController {
 
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "Background")
         imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -23,6 +23,7 @@ final class SignInVC: UIViewController {
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.spacing = 20
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -48,6 +49,7 @@ final class SignInVC: UIViewController {
         stackView.alignment = .trailing
         stackView.distribution = .equalSpacing
         stackView.spacing = 15
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -95,6 +97,7 @@ final class SignInVC: UIViewController {
         label.textColor = UIColor(red: 0.373, green: 0.373, blue: 0.373, alpha: 1)
         label.font = UIFont(name: "Inter-Regular", size: 14)
         label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -107,6 +110,7 @@ final class SignInVC: UIViewController {
         button.layer.cornerRadius = 20
         button.heightAnchor.constraint(equalToConstant: 45).isActive = true
         button.widthAnchor.constraint(equalToConstant: 292).isActive = true
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -116,6 +120,7 @@ final class SignInVC: UIViewController {
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -134,6 +139,7 @@ final class SignInVC: UIViewController {
         label.textColor = .lightGray
         label.font = UIFont(name: "Inter-Regular", size: 14)
         label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -152,6 +158,7 @@ final class SignInVC: UIViewController {
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.spacing = 23
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -161,6 +168,7 @@ final class SignInVC: UIViewController {
         button.setImage(googleIcon, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 30).isActive = true
         button.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -170,6 +178,7 @@ final class SignInVC: UIViewController {
         button.setImage(googleIcon, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 30).isActive = true
         button.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -179,6 +188,7 @@ final class SignInVC: UIViewController {
         button.setImage(googleIcon, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 30).isActive = true
         button.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -187,6 +197,7 @@ final class SignInVC: UIViewController {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -195,6 +206,7 @@ final class SignInVC: UIViewController {
         label.text = "Don’t have an account."
         label.font = UIFont(name: "Inter-Regular", size: 14)
         label.textColor = UIColor(red: 0.373, green: 0.373, blue: 0.373, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -203,6 +215,7 @@ final class SignInVC: UIViewController {
         button.setTitle("Sign Up", for: .normal)
         button.titleLabel?.font = UIFont(name: "Inter-Regular", size: 14)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     

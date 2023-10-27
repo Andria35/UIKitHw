@@ -17,6 +17,7 @@ final class ColorPaletteVC: UIViewController {
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.spacing = 5
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
 
@@ -25,6 +26,7 @@ final class ColorPaletteVC: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .equalCentering
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -33,6 +35,7 @@ final class ColorPaletteVC: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .equalCentering
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -40,6 +43,7 @@ final class ColorPaletteVC: UIViewController {
         let label = UILabel()
         label.text = "Change Home Buttons Background Colors:"
         label.font = .boldSystemFont(ofSize: 12)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -47,6 +51,7 @@ final class ColorPaletteVC: UIViewController {
         let label = UILabel()
         label.text = "Change Home Background Color:"
         label.font = .boldSystemFont(ofSize: 12)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
