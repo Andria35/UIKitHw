@@ -107,10 +107,10 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         addSubview(imageView)
         addSubview(nameLabel)
         addSubview(genreLabel)
+        addSubview(favoriteButton)
         
         ratingView.addSubview(ratingLabel)
         imageView.addSubview(ratingView)
-        imageView.addSubview(favoriteButton)
         
     }
     
@@ -143,7 +143,9 @@ final class MovieCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: contentView.frame.height * 0.8)
+//            imageView.heightAnchor.constraint(equalToConstant: contentView.frame.height * 0.8)
+            imageView.bottomAnchor.constraint(equalTo:bottomAnchor, constant: -self.frame.height * 0.2)
+
         ])
     }
     
@@ -175,8 +177,8 @@ final class MovieCollectionViewCell: UICollectionViewCell {
     
     private func setupFavoriteButtonConstraints() {
         NSLayoutConstraint.activate([
-            favoriteButton.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 5),
-            favoriteButton.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 10)
+            favoriteButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            favoriteButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10)
         ])
     }
     // MARK: - Class Methods
@@ -187,4 +189,3 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         ratingLabel.text = movie.imdb
     }
 }
-

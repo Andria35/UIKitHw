@@ -38,7 +38,7 @@ final class HomeViewController: UIViewController {
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = nil
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     

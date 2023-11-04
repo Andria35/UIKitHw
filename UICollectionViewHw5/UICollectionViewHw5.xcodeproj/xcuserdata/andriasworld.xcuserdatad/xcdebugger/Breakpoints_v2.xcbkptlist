@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
             endingLineNumber = "122"
-            landmarkName = "favoriteButtonTapped()"
-            landmarkType = "7">
+            landmarkName = "MovieCollectionViewCell"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
             endingLineNumber = "117"
-            landmarkName = "setupFavoriteButton()"
-            landmarkType = "7">
+            landmarkName = "MovieCollectionViewCell"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,8 +48,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
             endingLineNumber = "120"
-            landmarkName = "MovieCollectionViewCell"
-            landmarkType = "3">
+            landmarkName = "setupFavoriteButton()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -88,7 +88,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2B2EE5C3-99AD-41B5-932A-73EF30984713"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UICollectionViewHw5/MovieCollectionViewCell.swift"
@@ -98,38 +98,6 @@
             endingLineNumber = "123"
             landmarkName = "favoriteButtonTapped()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2B2EE5C3-99AD-41B5-932A-73EF30984713 - 46a2a1b836070a64"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "UICollectionViewHw5.MovieCollectionViewCell.setupSubViews() -&gt; ()"
-                  moduleName = "UICollectionViewHw5"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andriasworld/Programming/Tbc-Ios-Course/UIKitHw/UICollectionViewHw5/UICollectionViewHw5/MovieCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "472">
-               </Location>
-               <Location
-                  uuid = "2B2EE5C3-99AD-41B5-932A-73EF30984713 - f031a237b4a732f6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "UICollectionViewHw5.MovieCollectionViewCell.favoriteButtonTapped() -&gt; ()"
-                  moduleName = "UICollectionViewHw5"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andriasworld/Programming/Tbc-Ios-Course/UIKitHw/UICollectionViewHw5/UICollectionViewHw5/MovieCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
