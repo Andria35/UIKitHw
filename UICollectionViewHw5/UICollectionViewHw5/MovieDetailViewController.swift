@@ -8,9 +8,10 @@
 import UIKit
 
 final class MovieDetailViewController: UIViewController {
-    // MARK: - Class Properties
     
+    // MARK: - Class Properties
     private var movie: Movie
+    
     // MARK: - UI Components
     private let mainVStack: UIStackView = {
         let stackView = UIStackView()
@@ -64,8 +65,8 @@ final class MovieDetailViewController: UIViewController {
     private let detailsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0 // Set the number of lines to 0 for unlimited lines.
-        label.lineBreakMode = .byWordWrapping // Use word wrapping for line breaks.
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .white
         return label
@@ -90,7 +91,6 @@ final class MovieDetailViewController: UIViewController {
     
     private let certificateValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "Certificate"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .white
         return label
@@ -115,7 +115,6 @@ final class MovieDetailViewController: UIViewController {
     
     private let runtimeValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "Certificate"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .white
         return label
@@ -140,7 +139,6 @@ final class MovieDetailViewController: UIViewController {
     
     private let releaseValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "Certificate"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .white
         return label
@@ -165,7 +163,6 @@ final class MovieDetailViewController: UIViewController {
     
     private let genreValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "Certificate"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .white
         return label
@@ -190,7 +187,6 @@ final class MovieDetailViewController: UIViewController {
     
     private let directorValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "Certificate"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .white
         return label
@@ -216,8 +212,8 @@ final class MovieDetailViewController: UIViewController {
     private let castValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0 // Set the number of lines to 0 for unlimited lines.
-        label.lineBreakMode = .byWordWrapping // Use word wrapping for line breaks.
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .white
         return label
@@ -251,6 +247,7 @@ final class MovieDetailViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - Setup UI
     private func setupUI() {
         setupBackground()
@@ -293,13 +290,10 @@ final class MovieDetailViewController: UIViewController {
         detailsVStack.addArrangedSubview(castHStack)
         
         detailsVStack.addArrangedSubview(selectSessionButton)
-
-
     }
     
     private func setupBackground() {
         view.backgroundColor = UIColor.backgroundColor
-
     }
     
     private func setupNavigationBar() {
@@ -324,7 +318,6 @@ final class MovieDetailViewController: UIViewController {
         mainVStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
         mainVStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         mainVStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-
     }
     
     private func setupMovieImageViewConstraints() {
@@ -342,7 +335,6 @@ final class MovieDetailViewController: UIViewController {
     }
     
     // MARK: - Class Methods
-    
     private func configureMovie() {
         movieImageView.image = movie.image
         ratingLabel.text = movie.imdb
@@ -354,5 +346,4 @@ final class MovieDetailViewController: UIViewController {
         directorValueLabel.text = movie.director
         castValueLabel.text = movie.cast
     }
-    
 }

@@ -8,8 +8,11 @@
 import UIKit
 
 class HeaderCollectionReusableView: UICollectionReusableView {
+    
+    // MARK: - Class Properties
     static let identifier = "HeaderCollectionReusableView"
     
+    // MARK: - UI Components
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Now In Cinemas"
@@ -32,5 +35,4 @@ class HeaderCollectionReusableView: UICollectionReusableView {
         super.layoutSubviews()
         titleLabel.frame = bounds
     }
-    
 }

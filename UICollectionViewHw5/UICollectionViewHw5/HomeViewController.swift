@@ -17,7 +17,6 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "ProductLogo"), for: .normal)
-        
         return button
     }()
     
@@ -29,7 +28,6 @@ final class HomeViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Inter-Bold", size: 14)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
-        
         return button
     }()
     
@@ -92,12 +90,10 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupLogoButtonConstraints() {
-//        logoButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
         logoButton.widthAnchor.constraint(equalToConstant: 48).isActive = true
     }
     
     private func setupProfileButtonConstraints() {
-//        profileButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         profileButton.widthAnchor.constraint(equalToConstant: 77).isActive = true
     }
     
@@ -109,9 +105,9 @@ final class HomeViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5)
         ])
     }
-    // MARK: - Class Methods
 }
 
+// MARK: - DataSource Extension
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         movies.count
@@ -127,8 +123,8 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - DelegateFlowLayout Extension
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (view.frame.width / 2) - 10
         return CGSize(width: size, height: 278)
@@ -155,10 +151,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - Delegate Extension
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedMovie = movies[indexPath.row]
-        let movieDetailVC = MovieDetailViewController(movie: selectedMovie) // Assuming you have an initializer in MovieDetailViewController to pass the selected movie.
+        let movieDetailVC = MovieDetailViewController(movie: selectedMovie)
         navigationController?.pushViewController(movieDetailVC, animated: true)
     }
 }

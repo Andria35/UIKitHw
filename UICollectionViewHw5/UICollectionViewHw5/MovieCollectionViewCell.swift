@@ -18,7 +18,6 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         image.contentMode = .scaleToFill
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
-        
         return image
     }()
     
@@ -27,20 +26,16 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         button.tintColor = .gray
-        
         button.isEnabled = true
         button.isUserInteractionEnabled = true
-        
         return button
     }()
-    
     
     private let ratingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "5.5"
         label.textColor = .white
-        
         return label
     }()
     
@@ -50,7 +45,6 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         containerView.backgroundColor = .orange
         containerView.layer.cornerRadius = 5.0
         containerView.layer.masksToBounds = true
-        
         return containerView
     }()
     
@@ -59,7 +53,6 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         label.font = .boldSystemFont(ofSize: 16)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         return label
     }()
     
@@ -68,7 +61,6 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         return label
     }()
     
@@ -111,7 +103,6 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         
         ratingView.addSubview(ratingLabel)
         imageView.addSubview(ratingView)
-        
     }
     
     private func setupFavoriteButton() {
@@ -143,9 +134,7 @@ final class MovieCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            imageView.heightAnchor.constraint(equalToConstant: contentView.frame.height * 0.8)
             imageView.bottomAnchor.constraint(equalTo:bottomAnchor, constant: -self.frame.height * 0.2)
-
         ])
     }
     
@@ -181,6 +170,7 @@ final class MovieCollectionViewCell: UICollectionViewCell {
             favoriteButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10)
         ])
     }
+    
     // MARK: - Class Methods
     func configure(with movie: Movie){
         imageView.image = movie.poster
