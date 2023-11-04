@@ -55,9 +55,9 @@ final class MovieDetailViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .leading
+        stackView.distribution = .fillProportionally
         stackView.backgroundColor = UIColor(red: 0.102, green: 0.133, blue: 0.196, alpha: 1)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 8
         return stackView
     }()
     
