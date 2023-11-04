@@ -199,7 +199,7 @@ final class MovieDetailViewController: UIViewController {
     private let castHStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.alignment = .center
+        stackView.alignment = .leading
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -207,7 +207,7 @@ final class MovieDetailViewController: UIViewController {
     
     private let castLabel: UILabel = {
         let label = UILabel()
-        label.text = "Director"
+        label.text = "Cast"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .gray
         return label
