@@ -1,8 +1,8 @@
 //
 //  MovieDetailViewController.swift
-//  UICollectionViewHw5
+//  NetworkingHw8
 //
-//  Created by Andria Inasaridze on 04.11.23.
+//  Created by Andria Inasaridze on 11.11.23.
 //
 
 import UIKit

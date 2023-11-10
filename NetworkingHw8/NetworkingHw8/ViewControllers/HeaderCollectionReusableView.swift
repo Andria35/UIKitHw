@@ -1,8 +1,8 @@
 //
 //  HeaderCollectionReusableView.swift
-//  UICollectionViewHw5
+//  NetworkingHw8
 //
-//  Created by Andria Inasaridze on 03.11.23.
+//  Created by Andria Inasaridze on 11.11.23.
 //
 
 import UIKit

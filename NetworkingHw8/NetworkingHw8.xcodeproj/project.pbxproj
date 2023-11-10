@@ -13,13 +13,12 @@
 		104A0A492AFE58CF00F802EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 104A0A482AFE58CF00F802EF /* Assets.xcassets */; };
 		104A0A4C2AFE58CF00F802EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 104A0A4A2AFE58CF00F802EF /* LaunchScreen.storyboard */; };
 		104A0A582AFE5A4E00F802EF /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A0A572AFE5A4E00F802EF /* Movie.swift */; };
-		104A0A5A2AFE5A9B00F802EF /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A0A592AFE5A9B00F802EF /* HeaderCollectionReusableView.swift */; };
-		104A0A5C2AFE5AC100F802EF /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A0A5B2AFE5AC100F802EF /* MovieCollectionViewCell.swift */; };
-		104A0A5E2AFE5AC800F802EF /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A0A5D2AFE5AC800F802EF /* MovieDetailViewController.swift */; };
-		104A0A612AFE5B1D00F802EF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A0A602AFE5B1D00F802EF /* UIColor.swift */; };
 		104A0A632AFE632E00F802EF /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A0A622AFE632E00F802EF /* DownloadManager.swift */; };
 		104A0A652AFE812A00F802EF /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A0A642AFE812A00F802EF /* Genre.swift */; };
 		104A0A672AFE8CA300F802EF /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A0A662AFE8CA300F802EF /* MovieDetails.swift */; };
+		104A0A692AFECBEF00F802EF /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A0A682AFECBEF00F802EF /* MovieCollectionViewCell.swift */; };
+		104A0A6B2AFECC5100F802EF /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A0A6A2AFECC5100F802EF /* MovieDetailViewController.swift */; };
+		104A0A6D2AFECCC300F802EF /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A0A6C2AFECCC300F802EF /* HeaderCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +30,12 @@
 		104A0A4B2AFE58CF00F802EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		104A0A4D2AFE58CF00F802EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		104A0A572AFE5A4E00F802EF /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		104A0A592AFE5A9B00F802EF /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderCollectionReusableView.swift; path = ../../../UICollectionViewHw5/UICollectionViewHw5/HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
-		104A0A5B2AFE5AC100F802EF /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieCollectionViewCell.swift; path = ../../../UICollectionViewHw5/UICollectionViewHw5/MovieCollectionViewCell.swift; sourceTree = "<group>"; };
-		104A0A5D2AFE5AC800F802EF /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieDetailViewController.swift; path = ../../../UICollectionViewHw5/UICollectionViewHw5/MovieDetailViewController.swift; sourceTree = "<group>"; };
-		104A0A602AFE5B1D00F802EF /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = ../../../UICollectionViewHw5/UICollectionViewHw5/Extensions/UIColor.swift; sourceTree = "<group>"; };
 		104A0A622AFE632E00F802EF /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		104A0A642AFE812A00F802EF /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		104A0A662AFE8CA300F802EF /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
+		104A0A682AFECBEF00F802EF /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		104A0A6A2AFECC5100F802EF /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		104A0A6C2AFECCC300F802EF /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +92,10 @@
 		104A0A542AFE5A0100F802EF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				104A0A592AFE5A9B00F802EF /* HeaderCollectionReusableView.swift */,
-				104A0A5D2AFE5AC800F802EF /* MovieDetailViewController.swift */,
 				104A0A432AFE58CE00F802EF /* HomeViewController.swift */,
-				104A0A5B2AFE5AC100F802EF /* MovieCollectionViewCell.swift */,
+				104A0A682AFECBEF00F802EF /* MovieCollectionViewCell.swift */,
+				104A0A6A2AFECC5100F802EF /* MovieDetailViewController.swift */,
+				104A0A6C2AFECCC300F802EF /* HeaderCollectionReusableView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -123,7 +121,6 @@
 		104A0A5F2AFE5B0B00F802EF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				104A0A602AFE5B1D00F802EF /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -201,11 +198,10 @@
 				104A0A442AFE58CE00F802EF /* HomeViewController.swift in Sources */,
 				104A0A402AFE58CE00F802EF /* AppDelegate.swift in Sources */,
 				104A0A582AFE5A4E00F802EF /* Movie.swift in Sources */,
-				104A0A5C2AFE5AC100F802EF /* MovieCollectionViewCell.swift in Sources */,
-				104A0A5E2AFE5AC800F802EF /* MovieDetailViewController.swift in Sources */,
+				104A0A692AFECBEF00F802EF /* MovieCollectionViewCell.swift in Sources */,
+				104A0A6D2AFECCC300F802EF /* HeaderCollectionReusableView.swift in Sources */,
+				104A0A6B2AFECC5100F802EF /* MovieDetailViewController.swift in Sources */,
 				104A0A672AFE8CA300F802EF /* MovieDetails.swift in Sources */,
-				104A0A612AFE5B1D00F802EF /* UIColor.swift in Sources */,
-				104A0A5A2AFE5A9B00F802EF /* HeaderCollectionReusableView.swift in Sources */,
 				104A0A632AFE632E00F802EF /* DownloadManager.swift in Sources */,
 				104A0A422AFE58CE00F802EF /* SceneDelegate.swift in Sources */,
 				104A0A652AFE812A00F802EF /* Genre.swift in Sources */,

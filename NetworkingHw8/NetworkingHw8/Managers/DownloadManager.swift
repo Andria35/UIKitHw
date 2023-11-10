@@ -30,25 +30,6 @@ final class DownloadManager {
     }
     
     // Using Modern Concurrency
-//    func fetchData<T: Codable>(fromURL urlString: String) async throws -> T {
-//        
-//        guard let url = URL(string: urlString) else { throw GHError.invalidURL }
-//        
-//        // Perform the network request asynchronously
-//        let (data, response) = try await URLSession.shared.data(from: url)
-//        
-//        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-//            throw GHError.invalidResponse
-//        }
-//        // Parse JSON
-//        do {
-//            let decoder = JSONDecoder()
-//            decoder.keyDecodingStrategy = .convertFromSnakeCase
-//            return try decoder.decode(T.self, from: data)
-//        } catch {
-//            throw GHError.invalidData
-//        }
-//    }
     func fetchData(fromURL urlString: String) async throws -> Data {
         
         guard let url = URL(string: urlString) else { throw GHError.invalidURL }
@@ -61,7 +42,6 @@ final class DownloadManager {
         }
         return data
     }
-
 }
 
 
