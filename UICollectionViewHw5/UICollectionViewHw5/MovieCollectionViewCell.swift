@@ -21,16 +21,6 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         return image
     }()
     
-    private let favoriteButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        button.tintColor = .gray
-        button.isEnabled = true
-        button.isUserInteractionEnabled = true
-        return button
-    }()
-    
     private let ratingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +42,9 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 16)
         label.textColor = .white
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "test"
         return label
     }()
     
@@ -61,6 +53,7 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "test"
         return label
     }()
     
@@ -88,7 +81,6 @@ final class MovieCollectionViewCell: UICollectionViewCell {
     private func setupUI() {
         setupBackground()
         setupSubViews()
-        setupFavoriteButton()
     }
     
     private func setupBackground() {
@@ -99,23 +91,9 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         addSubview(imageView)
         addSubview(nameLabel)
         addSubview(genreLabel)
-        addSubview(favoriteButton)
         
         ratingView.addSubview(ratingLabel)
         imageView.addSubview(ratingView)
-    }
-    
-    private func setupFavoriteButton() {
-        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
-    }
-    
-    // MARK: - Actions
-    @objc private func favoriteButtonTapped() {
-        if favoriteButton.tintColor == .gray {
-            favoriteButton.tintColor = .red
-        } else {
-            favoriteButton.tintColor = .gray
-        }
     }
     
     // MARK: - Setup Constraints
@@ -126,12 +104,11 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         
         setupRatingViewConstraints()
         setupRatingLabelConstraints()
-        setupFavoriteButtonConstraints()
     }
         
     private func setupImageConstraints() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo:bottomAnchor, constant: -self.frame.height * 0.2)
@@ -142,6 +119,7 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5)
         ])
     }
     
@@ -163,19 +141,27 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         ratingLabel.centerXAnchor.constraint(equalTo: ratingView.centerXAnchor).isActive = true
         ratingLabel.centerYAnchor.constraint(equalTo: ratingView.centerYAnchor).isActive = true
     }
-    
-    private func setupFavoriteButtonConstraints() {
-        NSLayoutConstraint.activate([
-            favoriteButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            favoriteButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10)
-        ])
+        
+    // MARK: - Class Methods
+    func configure(name: String, genre: String, posterPath: String, rating: Double){
+        nameLabel.text = name
+        genreLabel.text = genre
+        ratingLabel.text = String(format: "%.1f", rating)
+        downloadMoviePoster(poserPath: posterPath)
     }
     
-    // MARK: - Class Methods
-    func configure(with movie: Movie){
-        imageView.image = movie.poster
-        nameLabel.text = movie.name
-        genreLabel.text = movie.genre
-        ratingLabel.text = movie.imdb
+    private func downloadMoviePoster(poserPath: String) {
+        let urlString = "https://image.tmdb.org/t/p/original/\(poserPath)"
+        
+        guard let url = URL(string: urlString) else { return }
+        DownloadManager.shared.downloadData(fromURL: url) { returnedData in
+            if let data = returnedData {
+                DispatchQueue.main.async { [weak self] in
+                    if let image = UIImage(data: data) {
+                        self?.imageView.image = image
+                    }
+                }
+            }
+        }
     }
 }

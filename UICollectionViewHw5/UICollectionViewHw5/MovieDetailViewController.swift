@@ -10,7 +10,7 @@ import UIKit
 final class MovieDetailViewController: UIViewController {
     
     // MARK: - Class Properties
-    private var movie: Movie
+    private var movie: MovieDetails?
     
     // MARK: - UI Components
     private let mainVStack: UIStackView = {
@@ -37,16 +37,16 @@ final class MovieDetailViewController: UIViewController {
         return stackView
     }()
     
-    private let ratingLabel: UILabel = {
+    private let ratingValueLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 20)
         label.textColor = .white
         return label
     }()
     
-    private let imdbLabel: UILabel = {
+    private let ratingLabel: UILabel = {
         let label = UILabel()
-        label.text = "IMDB"
+        label.text = "Rating"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .white
         return label
@@ -57,7 +57,7 @@ final class MovieDetailViewController: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fillProportionally
-        stackView.backgroundColor = UIColor(red: 0.102, green: 0.133, blue: 0.196, alpha: 1)
+//        stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -69,6 +69,7 @@ final class MovieDetailViewController: UIViewController {
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .white
+        label.text = " "
         return label
     }()
     
@@ -81,15 +82,15 @@ final class MovieDetailViewController: UIViewController {
         return stackView
     }()
     
-    private let certificateLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Certificate"
+        label.text = "Title:"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
-        label.textColor = .gray
+        label.textColor = .lightGray
         return label
     }()
     
-    private let certificateValueLabel: UILabel = {
+    private let titleValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .white
@@ -107,9 +108,9 @@ final class MovieDetailViewController: UIViewController {
     
     private let runtimeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Runtime"
+        label.text = "Runtime:"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
-        label.textColor = .gray
+        label.textColor = .lightGray
         return label
     }()
     
@@ -131,9 +132,9 @@ final class MovieDetailViewController: UIViewController {
     
     private let releaseLabel: UILabel = {
         let label = UILabel()
-        label.text = "Release"
+        label.text = "Release:"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
-        label.textColor = .gray
+        label.textColor = .lightGray
         return label
     }()
     
@@ -155,9 +156,9 @@ final class MovieDetailViewController: UIViewController {
     
     private let genreLabel: UILabel = {
         let label = UILabel()
-        label.text = "Genre"
+        label.text = "Genre:"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
-        label.textColor = .gray
+        label.textColor = .lightGray
         return label
     }()
     
@@ -168,7 +169,7 @@ final class MovieDetailViewController: UIViewController {
         return label
     }()
     
-    private let directorHStack: UIStackView = {
+    private let budgetHStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
@@ -177,22 +178,22 @@ final class MovieDetailViewController: UIViewController {
         return stackView
     }()
     
-    private let directorLabel: UILabel = {
+    private let budgetLabel: UILabel = {
         let label = UILabel()
-        label.text = "Director"
+        label.text = "Budget:"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
-        label.textColor = .gray
+        label.textColor = .lightGray
         return label
     }()
     
-    private let directorValueLabel: UILabel = {
+    private let budgetValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
         label.textColor = .white
         return label
     }()
     
-    private let castHStack: UIStackView = {
+    private let productionCountriesHStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .leading
@@ -201,15 +202,15 @@ final class MovieDetailViewController: UIViewController {
         return stackView
     }()
     
-    private let castLabel: UILabel = {
+    private let productionCountriesLabel: UILabel = {
         let label = UILabel()
-        label.text = "Cast"
+        label.text = "Production Country:"
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
-        label.textColor = .gray
+        label.textColor = .lightGray
         return label
     }()
     
-    private let castValueLabel: UILabel = {
+    private let productionCountriesValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -219,34 +220,14 @@ final class MovieDetailViewController: UIViewController {
         return label
     }()
     
-    private let selectSessionButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Select Session", for: .normal)
-        button.backgroundColor = UIColor.orange
-        button.layer.cornerRadius = 10
-        button.setTitleColor(UIColor.white, for: .normal)
-        return button
-    }()
-    
-    
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureMovie()
         setupUI()
         setupConstraints()
     }
     
-    init(movie: Movie) {
-        self.movie = movie
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: - Setup UI
     private func setupUI() {
@@ -259,14 +240,14 @@ final class MovieDetailViewController: UIViewController {
         view.addSubview(mainVStack)
         
         mainVStack.addArrangedSubview(movieImageView)
+        ratingVStack.addArrangedSubview(ratingValueLabel)
         ratingVStack.addArrangedSubview(ratingLabel)
-        ratingVStack.addArrangedSubview(imdbLabel)
         mainVStack.addArrangedSubview(ratingVStack)
         detailsVStack.addArrangedSubview(detailsLabel)
         mainVStack.addArrangedSubview(detailsVStack)
         
-        certificateHStack.addArrangedSubview(certificateLabel)
-        certificateHStack.addArrangedSubview(certificateValueLabel)
+        certificateHStack.addArrangedSubview(titleLabel)
+        certificateHStack.addArrangedSubview(titleValueLabel)
         detailsVStack.addArrangedSubview(certificateHStack)
         
         runtimeHStack.addArrangedSubview(runtimeLabel)
@@ -281,29 +262,28 @@ final class MovieDetailViewController: UIViewController {
         genreHStack.addArrangedSubview(genreValueLabel)
         detailsVStack.addArrangedSubview(genreHStack)
         
-        directorHStack.addArrangedSubview(directorLabel)
-        directorHStack.addArrangedSubview(directorValueLabel)
-        detailsVStack.addArrangedSubview(directorHStack)
+        budgetHStack.addArrangedSubview(budgetLabel)
+        budgetHStack.addArrangedSubview(budgetValueLabel)
+        detailsVStack.addArrangedSubview(budgetHStack)
         
-        castHStack.addArrangedSubview(castLabel)
-        castHStack.addArrangedSubview(castValueLabel)
-        detailsVStack.addArrangedSubview(castHStack)
+        productionCountriesHStack.addArrangedSubview(productionCountriesLabel)
+        productionCountriesHStack.addArrangedSubview(productionCountriesValueLabel)
+        detailsVStack.addArrangedSubview(productionCountriesHStack)
         
-        detailsVStack.addArrangedSubview(selectSessionButton)
     }
     
     private func setupBackground() {
-        view.backgroundColor = UIColor.backgroundColor
+        view.backgroundColor = .systemIndigo
     }
     
     private func setupNavigationBar() {
-        let barTitle = movie.name
+//        let barTitle = movie.name
         let attributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20),
             NSAttributedString.Key.foregroundColor: UIColor.white
         ]
         navigationController?.navigationBar.titleTextAttributes = attributes
-        navigationItem.title = barTitle
+//        navigationItem.title = barTitle
     }
     
     // MARK: - Setup Constraints
@@ -311,7 +291,6 @@ final class MovieDetailViewController: UIViewController {
         setupMainVStackConstraints()
         setupMovieImageViewConstraints()
         setupDetailsVStackConstraints()
-        setupSelectSessionButton()
     }
     
     private func setupMainVStackConstraints(){
@@ -328,22 +307,45 @@ final class MovieDetailViewController: UIViewController {
     private func setupDetailsVStackConstraints() {
         detailsVStack.widthAnchor.constraint(equalToConstant: view.frame.width * 0.914).isActive = true
     }
-    
-    private func setupSelectSessionButton() {
-        selectSessionButton.widthAnchor.constraint(equalToConstant: view.frame.width * 0.914).isActive = true
-        selectSessionButton.heightAnchor.constraint(equalToConstant: view.frame.height * 0.065).isActive = true
+        
+    // MARK: - Class Methods
+    func configureMovie(movieId: Int) {
+        let urlString = "https://api.themoviedb.org/3/movie/\(movieId)?api_key="
+        let apiKey = "eb48012526011eb1da6f6963274b867d"
+        Task {
+            do {
+                let data = try await DownloadManager.shared.fetchData(fromURL: "\(urlString)\(apiKey)")
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                movie = try decoder.decode(MovieDetails.self, from: data)
+            } catch {
+                print(error)
+            }
+            await configureUIData()
+        }
     }
     
-    // MARK: - Class Methods
-    private func configureMovie() {
-        movieImageView.image = movie.image
-        ratingLabel.text = movie.imdb
-        detailsLabel.text = movie.description
-        certificateValueLabel.text = movie.certificate
-        runtimeValueLabel.text = movie.runTime
-        releaseValueLabel.text = movie.release
-        genreValueLabel.text = movie.genre
-        directorValueLabel.text = movie.director
-        castValueLabel.text = movie.cast
+    func configureUIData() async {
+        guard let movie = self.movie else { return }
+        await downloadMovieImage(backdropPath: movie.backdropPath)
+        ratingValueLabel.text = String(format: "%.1f", movie.voteAverage)
+        releaseValueLabel.text = movie.releaseDate
+        runtimeValueLabel.text = "\(movie.runtime) minutes"
+        genreValueLabel.text = movie.genres.first?.name ?? ""
+        budgetValueLabel.text = "$\(movie.budget)"
+        titleValueLabel.text = movie.originalTitle
+        productionCountriesValueLabel.text = movie.productionCountries.first?.name ?? ""
+        detailsLabel.text =  "\(movie.overview)"
+    }
+    
+    private func downloadMovieImage(backdropPath: String) async {
+        let urlString = "https://image.tmdb.org/t/p/original/\(backdropPath)"
+        do {
+            let data = try await DownloadManager.shared.fetchData(fromURL: urlString)
+            let image = UIImage(data: data)
+            movieImageView.image = image
+        } catch {
+            print(error)
+        }
     }
 }

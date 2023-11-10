@@ -15,7 +15,7 @@ class HeaderCollectionReusableView: UICollectionReusableView {
     // MARK: - UI Components
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Now In Cinemas"
+        label.text = "Top Rated Movies"
         label.font = .boldSystemFont(ofSize: 26)
         label.textColor = .white
         
