@@ -140,6 +140,7 @@
 			children = (
 				10C721442B07B6C00068B567 /* HomeViewModel.swift */,
 				10C721492B07DE5C0068B567 /* MovieDetailViewModel.swift */,
+				10C7214C2B080D940068B567 /* MovieCollectionViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -167,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				104A0A682AFECBEF00F802EF /* MovieCollectionViewCell.swift */,
-				10C7214C2B080D940068B567 /* MovieCollectionViewCellViewModel.swift */,
 			);
 			path = MovieCollectionViewCell;
 			sourceTree = "<group>";
