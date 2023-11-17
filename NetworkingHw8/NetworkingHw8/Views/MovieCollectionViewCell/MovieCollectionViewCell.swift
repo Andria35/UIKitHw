@@ -10,6 +10,7 @@ import UIKit
 final class MovieCollectionViewCell: UICollectionViewCell {
     // MARK: - Class Properties
     static let identifier = "MovieCollectionViewCell"
+    var viewModel: MovieCollectionViewCellViewModel
     
     // MARK: - UI Components
     private let imageView: UIImageView = {
@@ -59,8 +60,11 @@ final class MovieCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Init
     override init(frame: CGRect) {
-        super.init(frame: frame)
         
+        self.viewModel = MovieCollectionViewCellViewModel()
+        super.init(frame: frame)
+        self.viewModel.updateData = self.updatePoster
+
         setupUI()
         setupConstraints()
     }
@@ -147,18 +151,22 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         nameLabel.text = name
         genreLabel.text = genre
         ratingLabel.text = String(format: "%.1f", rating)
-        downloadMoviePoster(poserPath: posterPath)
+        viewModel.downloadMoviePoster(poserPath: posterPath)
     }
     
+    func updatePoster(image: UIImage) {
+        imageView.image = image
+    }
+        
     private func downloadMoviePoster(poserPath: String) {
         let urlString = "https://image.tmdb.org/t/p/original/\(poserPath)"
         
         guard let url = URL(string: urlString) else { return }
         DownloadManager.shared.downloadData(fromURL: url) { returnedData in
             if let data = returnedData {
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async {
                     if let image = UIImage(data: data) {
-                        self?.imageView.image = image
+                        self.imageView.image = image
                     }
                 }
             }

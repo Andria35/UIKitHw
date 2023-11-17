@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Welcome
-struct MovieDetails: Codable {
+struct MovieDetails: Decodable {
     
     let backdropPath: String
     let budget: Int
@@ -31,14 +31,14 @@ struct MovieDetails: Codable {
         case voteAverage
     }
     
-    struct Genre: Codable {
+    struct Genre: Decodable {
         let id: Int
         let name: String
     }
 }
 
 // MARK: - ProductionCountry
-struct ProductionCountry: Codable {
+struct ProductionCountry: Decodable {
     let name: String
     
     enum CodingKeys: String, CodingKey {

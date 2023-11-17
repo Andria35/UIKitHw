@@ -1,16 +1,13 @@
 //
-//  MovieDetailViewController.swift
+//  MovieDetailView.swift
 //  NetworkingHw8
 //
-//  Created by Andria Inasaridze on 11.11.23.
+//  Created by Andria Inasaridze on 17.11.23.
 //
 
 import UIKit
 
-final class MovieDetailViewController: UIViewController {
-    
-    // MARK: - Class Properties
-    private var movie: MovieDetails?
+final class MovieDetailView: UIView {
     
     // MARK: - UI Components
     private let mainVStack: UIStackView = {
@@ -32,7 +29,6 @@ final class MovieDetailViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 4
         return stackView
     }()
@@ -57,14 +53,12 @@ final class MovieDetailViewController: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fillProportionally
-//        stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
     private let detailsLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
@@ -78,7 +72,6 @@ final class MovieDetailViewController: UIViewController {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.spacing = 16
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -123,7 +116,6 @@ final class MovieDetailViewController: UIViewController {
     
     private let releaseHStack: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -147,7 +139,6 @@ final class MovieDetailViewController: UIViewController {
     
     private let genreHStack: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -171,7 +162,6 @@ final class MovieDetailViewController: UIViewController {
     
     private let budgetHStack: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -195,10 +185,8 @@ final class MovieDetailViewController: UIViewController {
     
     private let productionCountriesHStack: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
         stackView.alignment = .leading
         stackView.spacing = 16
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -212,7 +200,6 @@ final class MovieDetailViewController: UIViewController {
     
     private let productionCountriesValueLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont(name: "PTRootUI-Regular", size: 14)
@@ -221,23 +208,25 @@ final class MovieDetailViewController: UIViewController {
     }()
     
     // MARK: - ViewLifeCycles
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         setupUI()
         setupConstraints()
     }
-    
-    
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - Setup UI
     private func setupUI() {
         setupBackground()
         setupSubViews()
-        setupNavigationBar()
     }
     
     private func setupSubViews() {
-        view.addSubview(mainVStack)
+        addSubview(mainVStack)
         
         mainVStack.addArrangedSubview(movieImageView)
         ratingVStack.addArrangedSubview(ratingValueLabel)
@@ -273,17 +262,7 @@ final class MovieDetailViewController: UIViewController {
     }
     
     private func setupBackground() {
-        view.backgroundColor = .systemIndigo
-    }
-    
-    private func setupNavigationBar() {
-//        let barTitle = movie.name
-        let attributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20),
-            NSAttributedString.Key.foregroundColor: UIColor.white
-        ]
-        navigationController?.navigationBar.titleTextAttributes = attributes
-//        navigationItem.title = barTitle
+        backgroundColor = .systemIndigo
     }
     
     // MARK: - Setup Constraints
@@ -294,58 +273,43 @@ final class MovieDetailViewController: UIViewController {
     }
     
     private func setupMainVStackConstraints(){
-        mainVStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
-        mainVStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        mainVStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        mainVStack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
+        mainVStack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
+        mainVStack.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
     
     private func setupMovieImageViewConstraints() {
-        movieImageView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
-        movieImageView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.247).isActive = true
+        movieImageView.topAnchor.constraint(equalTo: mainVStack.topAnchor).isActive = true
+        movieImageView.leadingAnchor.constraint(equalTo: mainVStack.leadingAnchor).isActive = true
+        movieImageView.trailingAnchor.constraint(equalTo: mainVStack.trailingAnchor).isActive = true
+        movieImageView.heightAnchor.constraint(equalTo: mainVStack.widthAnchor, multiplier: 0.5).isActive = true
     }
     
     private func setupDetailsVStackConstraints() {
-        detailsVStack.widthAnchor.constraint(equalToConstant: view.frame.width * 0.914).isActive = true
+        detailsVStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
+        detailsVStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
     }
-        
+    
     // MARK: - Class Methods
-    func configureMovie(movieId: Int) {
-        let urlString = "https://api.themoviedb.org/3/movie/\(movieId)?api_key="
-        let apiKey = "eb48012526011eb1da6f6963274b867d"
-        Task {
-            do {
-                let data = try await DownloadManager.shared.fetchData(fromURL: "\(urlString)\(apiKey)")
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                movie = try decoder.decode(MovieDetails.self, from: data)
-            } catch {
-                print(error)
-            }
-            await configureUIData()
-        }
-    }
-    
-    func configureUIData() async {
-        guard let movie = self.movie else { return }
-        await downloadMovieImage(backdropPath: movie.backdropPath)
-        ratingValueLabel.text = String(format: "%.1f", movie.voteAverage)
-        releaseValueLabel.text = movie.releaseDate
-        runtimeValueLabel.text = "\(movie.runtime) minutes"
-        genreValueLabel.text = movie.genres.first?.name ?? ""
-        budgetValueLabel.text = "$\(movie.budget)"
-        titleValueLabel.text = movie.originalTitle
-        productionCountriesValueLabel.text = movie.productionCountries.first?.name ?? ""
-        detailsLabel.text =  "\(movie.overview)"
-    }
-    
-    private func downloadMovieImage(backdropPath: String) async {
-        let urlString = "https://image.tmdb.org/t/p/original/\(backdropPath)"
-        do {
-            let data = try await DownloadManager.shared.fetchData(fromURL: urlString)
-            let image = UIImage(data: data)
-            movieImageView.image = image
-        } catch {
-            print(error)
-        }
+    func configureUI(
+        voteAverage: Double,
+        release: String,
+        runtime: Int,
+        genre: String,
+        budget: Int,
+        title: String,
+        productionCountry: String,
+        overview: String,
+        image: UIImage
+    ) {
+        ratingValueLabel.text = String(format: "%.1f", voteAverage)
+        releaseValueLabel.text = release
+        runtimeValueLabel.text = "\(runtime) minutes"
+        genreValueLabel.text = genre
+        budgetValueLabel.text = "$\(budget)"
+        titleValueLabel.text = title
+        productionCountriesValueLabel.text = productionCountry
+        detailsLabel.text =  "\(overview)"
+        movieImageView.image = image
     }
 }

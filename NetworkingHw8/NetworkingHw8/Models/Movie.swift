@@ -8,12 +8,12 @@
 import UIKit
 
 // MARK: - Movie
-struct MoviesURLResponse: Codable {
+struct MoviesURLResponse: Decodable {
     let results: [Movie]
 }
 
 // MARK: - Result
-struct Movie: Codable {
+struct Movie: Decodable {
     let genreIDS: [Int]
     let id: Int
     let originalTitle: String

@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct GenreURLResponse: Codable {
+struct GenreURLResponse: Decodable {
     let genres: [Genre]
 }
 
 // MARK: - Genre
-struct Genre: Codable {
+struct Genre: Decodable {
     let id: Int
     let name: String
 }

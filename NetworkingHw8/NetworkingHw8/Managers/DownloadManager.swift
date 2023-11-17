@@ -13,7 +13,6 @@ final class DownloadManager {
     
     private init() {}
     
-    // Using escaping Closures
     func downloadData(fromURL url: URL, completionHandler: @escaping (_ data: Data?) -> ()) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard
@@ -29,7 +28,6 @@ final class DownloadManager {
         }.resume()
     }
     
-    // Using Modern Concurrency
     func fetchData(fromURL urlString: String) async throws -> Data {
         
         guard let url = URL(string: urlString) else { throw GHError.invalidURL }

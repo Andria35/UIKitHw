@@ -18,7 +18,6 @@ class HeaderCollectionReusableView: UICollectionReusableView {
         label.text = "Top Rated Movies"
         label.font = .boldSystemFont(ofSize: 26)
         label.textColor = .white
-        
         return label
     }()
     
