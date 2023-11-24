@@ -86,9 +86,10 @@ final class NewsTableViewCell: UITableViewCell {
     // ეს ფუნქცია private არ უნდა იყოს
     func configure(with news: News) {
         // api დან დაბრუნებული ზოგი image url აქვს http, https ის ნაცვლად შესაბამისად
-        // მაგის handling არის აქ
+        // მაგის handling
         var urlString = news.urlToImage ?? ""
         urlString = urlString.replacingOccurrences(of: "http://", with: "https://")
+        
         let url = URL(string: urlString)
         newsImageView.kf.setImage(with: url)
         newsTitleLabel.text = news.title
